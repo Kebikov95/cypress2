@@ -12,6 +12,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
+                sh 'npm config ls'
                 sh "npm i"
                 sh "npm run mochawesome-delete-all"
             }
