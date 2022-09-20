@@ -30,15 +30,15 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            publishHTML target: [
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: true,
-            reportDir: 'mochawesome-report',
-            reportFiles: 'mochawesome.html',
-            reportName: 'Mochawesome Report']
-        }
-    }
+    // post {
+    //     always {
+    //         publishHTML target: [
+    //         allowMissing: false,
+    //         alwaysLinkToLastBuild: false,
+    //         keepAll: true,
+    //         reportDir: 'mochawesome-report',
+    //         reportFiles: 'mochawesome.html',
+    //         reportName: 'Mochawesome Report']
+    //     }
+    // }
 }
