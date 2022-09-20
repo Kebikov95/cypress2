@@ -5,7 +5,7 @@ pipeline {
     parameters {
         string(name: 'SPEC', defaultValue: "cypress/integration/**/**", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
-        choice(name: 'ENV', choice: ['stage', 'prod'])
+        choice(name: 'ENV', choices: ['stage', 'prod'])
     }
 
     stages {
