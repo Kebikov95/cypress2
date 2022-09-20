@@ -12,8 +12,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
-                sh "npm run mochawesome-delete-all"
                 sh "npm i"
+                sh "npm run mochawesome-delete-all"
             }
         }
         stage('Testing') {
