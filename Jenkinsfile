@@ -3,7 +3,7 @@ pipeline {
     agent any
 
     parameters {
-        string(name: 'SPEC', defaultValue: "cypress/integration/**/**", description: "Enter script to execute")
+        string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
         choice(name: 'ENV', choices: ['stage', 'prod'])
     }
