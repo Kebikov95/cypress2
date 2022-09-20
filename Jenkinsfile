@@ -12,33 +12,21 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
-                bat "npm run mochawesome-delete-all"
-                bat "npm i"
+                sh "npm run mochawesome-delete-all"
+                sh "npm i"
             }
         }
         stage('Testing') {
             steps {
                 echo "Test the application"
-                bat "npx cypress run --spec ${SPEC} --browser ${BROWSER}"
+                sh "npx cypress run --spec ${SPEC} --browser ${BROWSER}"
             }
         }
         stage('Report') {
             steps {
                 echo "Create the report about tests"
-                bat "npm run mochawesome-merge"
+                sh "npm run mochawesome-merge"
             }
         }
     }
-
-    // post {
-    //     always {
-    //         publishHTML target: [
-    //         allowMissing: false,
-    //         alwaysLinkToLastBuild: false,
-    //         keepAll: true,
-    //         reportDir: 'mochawesome-report',
-    //         reportFiles: 'mochawesome.html',
-    //         reportName: 'Mochawesome Report']
-    //     }
-    // }
 }
