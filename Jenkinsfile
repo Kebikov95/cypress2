@@ -23,7 +23,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "npx cypress run --headless --spec ${SPEC}"
+                sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
             }
         }
         stage('Report') {
