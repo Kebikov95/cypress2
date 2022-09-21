@@ -14,6 +14,11 @@ pipeline {
 
     stages {
         stage('Build') {
+            agent {
+                docker {
+                    image 'node:14-buster'
+                }
+            }
             steps {
                 echo "Building the application"
                 sh "npm i"
