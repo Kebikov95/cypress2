@@ -2,6 +2,8 @@ pipeline {
 
     agent any
 
+    tools {nodejs "node"}
+
     parameters {
         string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
@@ -10,11 +12,6 @@ pipeline {
 
     stages {
         stage('Build') {
-            agent {
-                docker {
-                    image 'node:14-buster'
-                }
-            }
             steps {
                 echo "Building the application"
                 sh "npm i"
