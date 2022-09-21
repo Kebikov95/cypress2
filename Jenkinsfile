@@ -18,7 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
-                sh 'apt-get install xvfb'
+                sh 'apt-get update && apt-get -y install xvfb'
                 sh 'Xvfb -screen 0 1024x768x24 :99 &'
                 sh "npm install cypress@9.7.0 --force"
                 sh "npm i --force"
