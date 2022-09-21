@@ -4,7 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "triggerRegistrationTests": "npx cypress run --spec ./cypress/integration/*.js",
+    "triggerRegistrationTests-chrome": "npx cypress run --spec ./cypress/integration/*.js --browser chrome",
+    "triggerRegistrationTests-headed": "npx cypress run --spec ./cypress/integration/*.js --headed",
+    "triggerRegistrationTests-report": "npm run mochawesome-delete-all && npm run triggerRegistrationTests && npm run mochawesome-merge",
+    "mochawesome-merge": "npx mochawesome-merge ./cypress/results/*.json > mochawesome.json && npx marge ./cypress/results/mochawesome.json",
+    "mochawesome-delete-result": "rm -rf ./cypress/results/* || true",
+    "mochawesome-delete-report": "rm -rf mochawesome-report/* || true",
+    "mochawesome-delete-all": "npm run mochawesome-delete-result && npm run mochawesome-delete-report"
   },
   "author": "",
   "license": "ISC",
