@@ -5,7 +5,7 @@ pipeline {
     tools {nodejs "node"}
 
     parameters {
-        string(name: 'SPEC', defaultValue: "cypress/integration/1-getting-started/todo.spec.js", description: "Enter script to execute")
+        string(name: 'SPEC', defaultValue: "cypress/integration/1-getting-started/*.spec.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
         choice(name: 'ENV', choices: ['stage', 'prod'])
     }
@@ -23,7 +23,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "npx cypress run --headless --spec cypress/integration/2-advanced-examples/actions.spec.js"
+                sh "npx cypress run --headless --spec ${SPEC}"
             }
         }
         stage('Report') {
