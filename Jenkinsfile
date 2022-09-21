@@ -22,7 +22,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
+                sh "npx cypress run --headless --spec ${SPEC}"
             }
         }
         stage('Report') {
