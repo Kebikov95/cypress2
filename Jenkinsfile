@@ -4,9 +4,9 @@ pipeline {
 
     tools {nodejs "node"}
 
-    // environment {
-    //     CYPRESS_RUN_BINARY = '/root/.cache/Cypress/9.7.0/Cypress/Cypress'
-    // }
+    environment {
+        CYPRESS_RUN_BINARY = '/var/jenkins_home/workspace/cypress/cypress'
+    }
 
     parameters {
         string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
