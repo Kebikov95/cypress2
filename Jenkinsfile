@@ -25,8 +25,8 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh 'Xvfb :99 &'
-                sh 'export DISPLAY=:99'
+                sh "chmod -R +x ./sh_scripts"
+                sh "./sh_scripts/Xvfb-restart-script.sh"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
                 sh 'xvfb-run -a blah & xvfb_pid=$! kill -- "-$xvfb_pid"'
             }
