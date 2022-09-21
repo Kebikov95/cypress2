@@ -5,7 +5,6 @@ pipeline {
     tools {nodejs "node"}
 
     environment {
-        ELECTRON_RUN_AS_NODE='1',
         DISPLAY='99'
     }
 
