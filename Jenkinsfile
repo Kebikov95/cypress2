@@ -5,7 +5,7 @@ pipeline {
     tools {nodejs "node"}
 
     environment {
-        DISPLAY='99'
+        DISPLAY=99
     }
 
     parameters {
