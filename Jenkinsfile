@@ -4,6 +4,10 @@ pipeline {
 
     tools {nodejs "node"}
 
+    // environment {
+    //     CYPRESS_RUN_BINARY = '/root/.cache/Cypress/9.7.0/Cypress/Cypress'
+    // }
+
     parameters {
         string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
@@ -14,8 +18,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
-                sh "npm install cypress@9.7.0"
-                sh "npm i"
+                sh "npm install cypress@9.7.0 --force"
+                sh "npm i --force"
                 sh "npm run mochawesome-delete-all"
             }
         }
