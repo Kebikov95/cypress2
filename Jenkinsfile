@@ -26,7 +26,7 @@ pipeline {
                 echo "Test the application"
                 sh 'Xvfb :99 &'
                 sh 'export DISPLAY=:99'
-                // sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
+                sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
                 sh 'xvfb-run -a blah & xvfb_pid=$! kill -- "-$xvfb_pid"'
             }
         }
