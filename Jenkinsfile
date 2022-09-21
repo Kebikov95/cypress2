@@ -2,6 +2,10 @@ pipeline {
 
     agent any
 
+    tools {
+        nodejs '18.9.0'
+    }
+
     parameters {
         string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
