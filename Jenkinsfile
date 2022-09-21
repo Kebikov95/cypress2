@@ -12,9 +12,8 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
-                sh 'npm config ls'
-                sh "npm i"
-                sh "npm run mochawesome-delete-all"
+                sh "npx i"
+                sh "npx run mochawesome-delete-all"
             }
         }
         stage('Testing') {
@@ -26,7 +25,7 @@ pipeline {
         stage('Report') {
             steps {
                 echo "Create the report about tests"
-                sh "npm run mochawesome-merge"
+                sh "npx run mochawesome-merge"
             }
         }
     }
