@@ -22,7 +22,6 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "cypress install"
                 sh "npx cypress run --browser ${BROWSER} --spec ${SPEC}"
             }
         }
