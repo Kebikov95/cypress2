@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "triggerRegistrationTests": "npx cypress run --spec ./cypress/integration/*.js",
+    "triggerRegistrationTests": "npx cypress run --spec ./cypress/integration/*.js --headless",
     "triggerRegistrationTests-chrome": "npx cypress run --spec ./cypress/integration/*.js --browser chrome",
     "triggerRegistrationTests-headed": "npx cypress run --spec ./cypress/integration/*.js --headed",
     "triggerRegistrationTests-report": "npm run mochawesome-delete-all && npm run triggerRegistrationTests && npm run mochawesome-merge",
