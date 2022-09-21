@@ -14,6 +14,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
+                sh "npm install cypress@9.7.0"
                 sh "npm i"
                 sh "npm run mochawesome-delete-all"
             }
