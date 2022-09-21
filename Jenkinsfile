@@ -5,7 +5,7 @@ pipeline {
     tools {nodejs "node"}
 
     environment {
-        ELECTRON_RUN_AS_NODE=1
+        ELECTRON_RUN_AS_NODE='1'
     }
 
     parameters {
