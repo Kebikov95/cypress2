@@ -24,6 +24,7 @@ pipeline {
             steps {
                 echo "Test the application"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
+                sh "pkill Xvfb"
             }
         }
         stage('Report') {
