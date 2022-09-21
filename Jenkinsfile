@@ -5,7 +5,7 @@ pipeline {
     tools {nodejs "node"}
 
     parameters {
-        string(name: 'SPEC', defaultValue: "cypress/integration/**/*.js", description: "Enter script to execute")
+        string(name: 'SPEC', defaultValue: "cypress/integration/1-getting-started/todo.spec.js", description: "Enter script to execute")
         choice(name: 'BROWSER', choices: ['chrome', 'electron', 'edge', 'firefox'])
         choice(name: 'ENV', choices: ['stage', 'prod'])
     }
