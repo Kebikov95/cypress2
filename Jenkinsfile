@@ -27,7 +27,7 @@ pipeline {
                 sh 'Xvfb :99 &'
                 sh 'export DISPLAY=:99'
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/*.js"
-                xvfb-run -a blah & xvfb_pid=$! kill -- "-$xvfb_pid"
+                sh 'xvfb-run -a blah & xvfb_pid=$! kill -- "-$xvfb_pid"'
             }
         }
         stage('Report') {
