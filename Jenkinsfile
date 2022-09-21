@@ -18,6 +18,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo "Building the application"
+                sh 'sudo apt-get install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb'
                 sh 'Xvfb -screen 0 1024x768x24 :99 &'
                 sh "npm install cypress@9.7.0 --force"
                 sh "npm i --force"
