@@ -27,7 +27,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "Xvfb -screen 0 1024x768x24 :99 &"
+                // sh "Xvfb -screen 0 1024x768x24 :99 &"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js"
                 sh "pkill Xvfb"
             }
