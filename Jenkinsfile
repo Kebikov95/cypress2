@@ -28,7 +28,7 @@ pipeline {
             steps {
                 echo "Test the application"
                 // sh "rm -rf /root/.config"
-                sh "Xvfb :99 &"
+                sh "Xvfb :99 & --disable-gpu-sandbox --disable-gpu"
                 sh "export DISPLAY=:99"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js"
                 sh "pkill Xvfb"
