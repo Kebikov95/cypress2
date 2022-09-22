@@ -18,7 +18,7 @@ pipeline {
                 // sh "chmod -R +x ./sh_scripts"
                 // sh "./sh_scripts/Xvfb-start.sh"
                 // sh "apt-get update && apt-get -y install procps"
-                sh "pkill Xvfb"
+                // sh "pkill Xvfb"
                 sh "npm install cypress@9.7.0 --force"
                 sh "npm i --force"
                 sh "npm run mochawesome-delete-all"
