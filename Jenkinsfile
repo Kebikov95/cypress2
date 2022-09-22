@@ -26,6 +26,7 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
+                sh "pkill Xvfb"
                 sh "chmod -R +x ./sh_scripts"
                 sh "./sh_scripts/Xvfb-start.sh"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js"
