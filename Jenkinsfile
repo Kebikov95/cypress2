@@ -17,7 +17,8 @@ pipeline {
                 // sh 'apt-get update && apt-get -y install libgtk2.0-0 libgtk-3-0 libgbm-dev libnotify-dev libgconf-2-4 libnss3 libxss1 libasound2 libxtst6 xauth xvfb'
                 // sh "chmod -R +x ./sh_scripts"
                 // sh "./sh_scripts/Xvfb-start.sh"
-                sh "apt-get update && apt-get -y install procps"
+                // sh "apt-get update && apt-get -y install procps"
+                sh "pkill Xvfb"
                 sh "npm install cypress@9.7.0 --force"
                 sh "npm i --force"
                 sh "npm run mochawesome-delete-all"
@@ -26,12 +27,9 @@ pipeline {
         stage('Testing') {
             steps {
                 echo "Test the application"
-                sh "pkill Xvfb"
-                sh "chmod -R +x ./sh_scripts"
-                sh "./sh_scripts/Xvfb-start.sh"
+                sh "Xvfb -screen 0 1024x768x24 :99 &"
                 sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js"
-                sh "chmod -R +x ./sh_scripts"
-                sh "./sh_scripts/Xvfb-kill.sh"
+                sh "pkill Xvfb"
             }
         }
         stage('Report') {
