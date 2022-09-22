@@ -30,7 +30,7 @@ pipeline {
                 // sh "rm -rf /root/.config"
                 sh "Xvfb :99 &"
                 sh "export DISPLAY=:99"
-                sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js --disable-gpu-sandbox --disable-gpu"
+                sh "npx cypress run --headless --spec cypress/integration/1-getting-started/todo.spec.js --disable-gpu --no-sandbox"
                 sh "pkill Xvfb"
             }
         }
